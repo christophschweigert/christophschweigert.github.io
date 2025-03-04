@@ -32,8 +32,7 @@ Veranstaltungen im Sommersemester 2025 / teaching in the summer term
 Advanced algebra</a>
 <li> Research seminar <a href="https://www.math.uni-hamburg.de/home/schweigert/ss23/fose.html">
 Algebra and mathematical physics</a>
-<li> Seminar <a href=
-http://zmp.math.uni-hamburg.de/frame.php?lg=en&sheet=events&subsheet=3>
+<li> Seminar <a href="http://zmp.math.uni-hamburg.de/frame.php?lg=en&sheet=events&subsheet=3">
 Quantum physics and geometry</a></li>
 </li>
 </ul>
