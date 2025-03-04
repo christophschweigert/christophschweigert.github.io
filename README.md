@@ -38,7 +38,7 @@ Algebra and mathematical physics</a>
 <li> Seminar <a href="http://zmp.math.uni-hamburg.de/frame.php?lg=en&sheet=events&subsheet=3">
 Quantum physics and geometry</a></li>
 </li>
-</ul>
+
 
 <p></p>
 <hr>
