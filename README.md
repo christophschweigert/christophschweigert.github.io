@@ -10,7 +10,7 @@ Fachbereich Mathematik<br>
 Zahlentheorie </a> <br>
 <a href="http://www.zmp.uni-hamburg.de"> Zentrum f&uuml;r Mathematische 
 Physik</a> <br>
-<a href="https://www.qu.uni-hamburg.de/">Cluster of excellence "Quantum universe</a><br>
+<a href="https://www.qu.uni-hamburg.de/">Cluster of excellence "Quantum universe"</a><br>
 Bundesstraße 55 <br>
 20146 Hamburg<br> <br>
 Office: Geomatikum 313
@@ -31,9 +31,9 @@ christoph.schweigert (at) uni-hamburg.de<br><br><br>
 Veranstaltungen im Sommersemester 2025 / teaching in the summer term
 2025:</strong>
 <ul>
-<li> Master course <a href="https://www.math.uni-hamburg.de/home/schweigert/ss23/algebra2.html">
-Advanced algebra</a>
-<li> Research seminar <a href="https://www.math.uni-hamburg.de/home/schweigert/ss23/fose.html">
+<li> Master course <a href="https://www.math.uni-hamburg.de/home/schweigert/ss25/hopf.html">
+Hopf algebras, quantum groups and topological field theory</a>
+<li> Research seminar <a href="https://www.math.uni-hamburg.de/home/schweigert/ss25/fose.html">
 Algebra and mathematical physics</a>
 <li> Seminar <a href="http://zmp.math.uni-hamburg.de/frame.php?lg=en&sheet=events&subsheet=3">
 Quantum physics and geometry</a></li>
@@ -46,7 +46,7 @@ Quantum physics and geometry</a></li>
 <strong>Sprechstunde / Office Hours </strong><br>
 <p></p>
 <ul>
-<!--#include virtual="/home/schweigert/sprechstunde.txt"-->
+Nach Vereinbarung per e-mail. / Upon appointment by e-mail. 
 </ul>
 <br>
 <hr>
