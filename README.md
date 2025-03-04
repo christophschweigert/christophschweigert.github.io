@@ -23,6 +23,9 @@ Email:
 christoph.schweigert (at) uni-hamburg.de<br><br><br>
 </td>
 </tr>
+</tbody></table>
+<hr>
+<p>
 
 <strong>
 Veranstaltungen im Sommersemester 2025 / teaching in the summer term
