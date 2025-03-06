@@ -2,7 +2,7 @@
 <table summary="Adressinformationen" align="center" cellspacing="2" width="85%">
 <tbody><tr>
 <td>
-<img hspace="20" height="150" alt="Photo" src="https://christophschweigert.github.io/public_html/fot.gif">
+<img hspace="20" height="150" alt="Photo" src="https://christophschweigert.github.io/fot.gif">
 </td>
 <td>
 Fachbereich Mathematik<br>
