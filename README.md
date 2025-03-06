@@ -32,7 +32,7 @@ Veranstaltungen im Sommersemester 2025 / teaching in the summer term
 2025:</strong>
 <ul>
 <li> Master course <a href="https://www.math.uni-hamburg.de/home/schweigert/ss25/hopf.html">
-Hopf algebras, quantum groups and topological field theory</a>
+Hopf algebras, quantum groups and topological field theory</a> with <a href="skripten/hskript.pdf">lecture notes</a>.
 <li> Research seminar <a href="https://www.math.uni-hamburg.de/home/schweigert/ss25/fose.html">
 Algebra and mathematical physics</a>
 <li> Seminar <a href="http://zmp.math.uni-hamburg.de/frame.php?lg=en&sheet=events&subsheet=3">
