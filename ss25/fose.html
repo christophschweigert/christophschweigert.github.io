@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+#seminar {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+  white-space: pre-line;
+}
+
+#seminar td, #seminar th {
+  border: 1px solid #ddd;
+  padding: 20px;
+  vertical-align: top;
+}
+
+#seminar tr:nth-child(odd){background-color: #f2f2f2;}
+#seminar tr:nth-child(even){background-color: white;}
+
+#blank_row
+{
+  height: 20px !important; /* overwrites any other rules */
+  background-color: #FFFFFF;
+  border: none;
+  padding: 8px;
+}
+
+#week {background-color:   #a1caf1}; //#DDB0A0;}
+
+#seminar th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #8B0000;
+  color: white;
+}
+</style>
+</head>
+
+<body bgcolor="#eeeeff">
+<font face="Arial">
+&nbsp;<br>
+&nbsp;<br>
+<table>
+  <tbody>
+    <tr>
+      <td width="50">&nbsp;</td>
+      <td>
+      <table>
+        <tbody>
+          <tr>
+            <th align="left"><font face="Arial">65-602:</font></th>
+            <th align="left"><font face="Arial">&nbsp;Research Seminar
+Algebra and Mathematical Physics <br>
+            </font></th>
+          </tr>
+          <tr>
+            <td><b><font face="Arial">Lecturers:</font></b> </td>
+            <td><font face="Arial"><span style="text-decoration: underline;">
+<span><a href="http://www.math.uni-hamburg.de/home/runkel">Ingo
+Runkel</a></span>  and 
+<span style="text-decoration: underline;">
+<a href="http://www.math.uni-hamburg.de/home/schweigert">Christoph 
+Schweigert</a></span>
+
+            </font></td>
+          </tr>
+          <tr>
+            <td valign="top"><font face="Arial"><b>Description:</b></font></td>
+            <td align="left"><font face="Arial"> 
+This is the joint research seminar of the groups of Christoph Schweigert and Ingo Runkel. 
+
+The seminar takes place
+
+<p>
+
+<center>
+    Tuesdays, 14:15-15:45 in a hybrid format, Geom 433 and link in the announcement mails.
+</center>
+
+<p>
+
+The plan for this term is:
+</font>
+	  </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<center>
+<table id="seminar">
+	<tbody></tbody>
+</table>
+</center>
+
+<script type="text/javascript" src="ical.js"></script>
+<script src="jquery.min.js"></script>
+<script>
+
+var table = document.querySelector('#seminar'),
+    table_data_container = table.querySelector('tbody');
+var allevents;
+var promises = [];
+const startdate = new ICAL.Time.fromDateString("2025-03-01");
+const enddate = new ICAL.Time.fromDateString("2025-09-30");
+var URLS = [
+'https://www.math.uni-hamburg.de/remote.php/dav/public-calendars/HDfRcLABiyT4p43a/?export',
+];
+
+function getICS(URL) {
+    return new Promise((resolve, reject) => {
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", URL);
+        xhr.onload = () => {
+            if (xhr.status >= 200 && xhr.status < 300) {
+		var jcalData = ICAL.parse(xhr.responseText);
+		var comp = new ICAL.Component(jcalData);
+		var events = comp.getAllSubcomponents("vevent");
+                resolve(events);
+            } else {
+                reject(xhr.statusText);
+            }
+        };
+        xhr.onerror = () => reject(xhr.statusText);
+	xhr.send();
+    });
+};
+
+URLS.forEach(function(URL) {
+	promises.push(getICS(URL));
+});
+
+Promise.all(promises).then((events) => {
+	var rows = [];
+
+	events.forEach(function(eventlist) {
+		var primary;
+		var exhash = {};
+
+		var evhash = {};
+		var exceptions = [];
+		eventlist.forEach(function(vevent) {
+			var ev = new ICAL.Event(vevent);
+			if (ev.isRecurrenceException()) {
+				exceptions.push(ev);
+			} else {
+				evhash[ev.uid] = ev;
+				console.log(ev.toString());
+			}
+		});
+
+		exceptions.forEach( function(exception) {
+			evhash[exception.uid].relateException(exception);
+		});
+
+		Object.keys(evhash).forEach( function(uid) {
+			var it = evhash[uid].iterator();
+			var pev = evhash[uid];
+			var pevex = pev.exceptions;
+			var next;
+			while ( next = it.next()) {
+				if (  next.compare(enddate) == 1 ) {
+					break;
+				}
+				if( pevex[next.toString()] ) {
+					rows.push( [ next, pevex[next.toString()]]); 
+				} else { 
+					rows.push( [ next, pev]); 
+				}
+			}
+		});
+	});
+
+	rows.sort(function(a, b){
+		return a[0].toUnixTime()-b[0].toUnixTime();
+	});
+
+
+	var range_rows= [];
+	rows.forEach(function(row) {
+
+		if ( row[0].compare(startdate) == 1 && row[0].compare(enddate) == -1) {
+		range_rows.push(row);
+		}
+	});
+
+	createTable(range_rows);
+}); 
+
+
+var createTable = function(rows) {
+  var frag = document.createDocumentFragment(),
+      curr_item, curr_p, prev_date;
+
+
+    rows.forEach(function(row) {
+    curr_item = document.createElement('tr');
+	var startdate = row[0].toJSDate();
+	var options = { weekday: 'short', month: 'short', day: 'numeric' };
+
+        curr_p = document.createElement('td');
+	    if( startdate.toDateString() === prev_date){} else {
+        curr_p.textContent = startdate.toLocaleDateString("en-US",options);
+	    }
+        curr_item.appendChild(curr_p)
+
+        curr_p = document.createElement('td');
+        curr_p.textContent = row[0].hour + ":" + String(row[0].minute).padStart(2,
+		"0");
+        curr_item.appendChild(curr_p)
+
+	/*
+        curr_p = document.createElement('td');
+        curr_p.textContent = row[1].summary; 
+        curr_item.appendChild(curr_p)
+	*/
+
+        curr_p = document.createElement('td');
+        curr_p.setAttribute("style", "width:80%"); 
+        curr_p.innerHTML= row[1].description;
+        curr_item.appendChild(curr_p)
+
+    	frag.appendChild(curr_item);
+	prev_date = startdate.toDateString();
+    });
+
+  table_data_container.appendChild(frag);
+};
+
+
+
+</script>
+
+<p>
+
+<b>Literature:</b>
+
+
+
+
+<p>
+There exists a mailing list for the seminar. If you want to be inscribed,
+send a mail to one of the organizers.
+</body>
+</html>
+
