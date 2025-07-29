@@ -72,6 +72,23 @@ Professoren</a>
 </form>
 <!-- Google Scholar --> 
 
+ <!-- arxiv -->
+<form action="https://arxiv.org/search/advanced" method="get">
+  <input type="hidden" name="advanced" value="">
+  <input type="hidden" name="classification-mathematics" value="y">
+  <input type="hidden" name="abstracts" value="hide">
+  <input type="hidden" name="size" value="50">
+
+  <label for="author">math arXiv autor:</label>
+  <input type="text" id="author" name="terms-0-term" placeholder="enter name" required>
+
+  <input type="hidden" name="terms-0-field" value="author">
+
+  <button type="submit">search arXiv</button>
+</form>
+<!-- arxiv -->
+
+
 
 <form action="https://arxiv.org/find" method="post">
 <select name="archive">
