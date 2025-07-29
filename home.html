@@ -89,59 +89,20 @@ Professoren</a>
 <!-- arxiv -->
 
 
+<!-- MathSciNet -->
+<form action="https://mathscinet.ams.org/mathscinet/authors-search" method="get">
+  <label for="author-name">MathSciNet author: </label>
+  <input type="text" id="author-name" name="query" placeholder="enter name" required>
 
-<form action="https://arxiv.org/find" method="post">
-<select name="archive">
-<option>hep-th</option>
-<option>math-ph </option>
-<option selected="selected">math</option>  </select>
-  <select name="field_1">
-  <option selected="selected" value="au">Author(s):</option>
-  <option value="ti">Title:</option>
-  <option value="abs">Abstract:</option>
-  <option value="fr">Full Record:</option>
-  <option value="co">Comments:</option>
-  <option value="jr">Journal-ref:</option>
-  <option value="sc">Subject-class:</option>
-  <option value="rn">Report-no:</option>
-  </select>
-  <input size="34" name="query_1">
-<input type="submit" value="ArXiv"> 
+  <!-- Parameter für die Seitennummer, Seitengröße, Sortierung -->
+  <input type="hidden" name="page" value="1">
+  <input type="hidden" name="size" value="20">
+  <input type="hidden" name="sort" value="name">
+
+  <button type="submit">search MathSciNet</button>
 </form>
+<!-- MathSciNet -->
 
-<P>
-<form METHOD="GET" ACTION="https://mathscinet.ams.org/mathscinet/authors-search"
-ENCTYPE="application/x-ww
-w-form-urlencoded" NAME="search">
-<input SIZE="40" NAME="s3">
-<select NAME="pg3">
-<option SELECTED VALUE="ICN">Author/Related
-<option  VALUE="AUCN">Author
-<option  VALUE="TI">Title
-<option  VALUE="RT">Review Text
-<option  VALUE="JOUR">Journal
-<option  VALUE="IC">Institution Code
-<option  VALUE="SE">Series
-<option  VALUE="CC">MSC Primary/Secondary
-<option  VALUE="PC">MSC Primary
-
-<option  VALUE="MR">MR Number
-<option  VALUE="RVCN">Reviewer
-<option  VALUE="ALLF">Anywhere
-<option  VALUE="REFN">Ref Author
-<option  VALUE="REFF">Ref Anywhere
-</select>
-<input VALUE="MathScinet" TYPE="submit">
-<input NAME="arg1" TYPE="hidden" VALUE="1940">
-<input NAME="arg2" TYPE="hidden" VALUE="2005">
-<input NAME="yrop" TYPE="hidden" VALUE="eq">
-<input VALUE="all" TYPE="hidden" CHECKED="checked" NAME="dr">
-<input VALUE="ET" TYPE="hidden" NAME="pg2">
-<input VALUE="All" TYPE="hidden" CHECKED="" NAME="s2">
-<input VALUE="20" TYPE="hidden" CHECKED="" NAME="l">
-<input VALUE="130" TYPE="hidden" NAME="fn">
-<input VALUE="1" TYPE="hidden" NAME="r">
-</form>
 
 <form METHOD=GET ACTION="https://dict.leo.org/" NAME="dict">
         <input NAME="search" VALUE="" SIZE="30" MAXLENGTH="100">
